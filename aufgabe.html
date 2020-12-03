@@ -1,0 +1,145 @@
+<!-- Überschrift 1
+Überschrift 2
+Drei Boxen
+Box 1: Koordinaten bei mouseover
+Box 2: Hintergrundfarbe ändern bei mousenter
+Box 3: zufällige Hintergrundfarbe aus Array mit Farben wählen
+<p>Text</p>
+Bei mousedown soll der Text die Farbe ändern, bei mouseup der Hintergrund
+Drei Buttons (Änderungen bei onclick)
+Button 1: Hintergrundfarbe von Überschrift 1
+Button 2: Textfarbe von Überschrift 2
+Button 3: alert("Hello world!")
+Alle Elemente sollen bei mouseleave zurückgesetzt werden. (bearbeitet) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Nyal Hettmer</title>
+<meta charset="utf-8"/>
+<base href="images/">
+</head>
+<body>
+
+ <h1 id="überschriftGroß"> Überschrift 1</h1>
+<h2 id="überschriftMittel"> Überschrift 2</h2>
+<p style="border: 3px green solid; width: 7%; height: 70px;"
+    id="reset"
+
+    onmouseleave="clearP(event)">Hover over Box to Reset</p>
+
+<!--Border gibt den Kasten an, 4px die breite der Outline
+green ist die farbe, solid kp brauch ich halt und width ist die größe, height die höhe-->
+
+<p  style="border: 9px green solid; width: 30%; height: 200px;"
+    id="demo1"
+    onmouseover="showCoords(event)"></p>
+
+<p style="border: 8px rgba(255, 0, 0, 0.8) solid ; width: 30%; height: 200px;"
+    id="demo2"
+    onmouseenter="changeBackground(event)"
+    ></p>
+
+<p style="border: 8px rgba(120, 21, 233, 0.555) solid; width: 30%; height: 200px;"
+    id="demo3"
+    onmouseenter="getRandomBackground3(event)"></p>
+
+
+<!--Hallo text-->
+    <p id="text"
+    onmousedown="mouseDown()"
+    onmouseup="mouseUp()">
+        HAAAAAAAAAALLLLLOOOOOOOO</p>
+
+<!--Buttons-->
+<button onclick="changeBackgroundColor()">Überschrift1 BG-color random</button>
+<button onclick="changeTextColor()">Überschrift2 Textfarbe random</button>
+<button onclick="helloWorld()">Hello World!</button>
+
+
+
+
+
+
+
+<script>
+
+function showCoords(event) {
+  let x = event.clientX;
+  let y = event.clientY;
+  let coords = "X: " + x + ", Y: " + y;
+  document.getElementById("demo1").innerHTML = coords;
+}
+
+function changeBackground() {
+  document.getElementById("demo2").style.background = "yellow";
+}
+
+//Random Hintergrund
+function getRandomBackground3() {
+    document.getElementById("demo3").style.background = colorRandomBackground;
+  }
+
+//Random Farbe generieren 
+  let colors = ["yellow", "black", "green", "blue", "violet", "grey", "rgba(120, 21, 233, 0.555)", "aqua", "azure", "blueviolet", "cyan","gold", "ivory", "mistyrose", "orange", "plum", "salmon", "silver", "darkgray","mediumaquamarine"]
+
+  function getColor(){
+    let color = []
+    color = colors[getRandomInt(colors.length)]
+    return color
+}
+
+let colorRandomBackground = ""
+
+colorRandomBackground= getColor()
+colorMouseDown= getColor()
+colorMouseUp= getColor()
+colorButton1= getColor()
+colorButton2= getColor()
+colorButton3= getColor()
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max))
+}
+//TExt Farbe ändern
+
+function mouseDown() {
+  document.getElementById("text").style.color = colorMouseDown;
+}
+function mouseUp() {
+  document.getElementById("text").style.background = colorMouseUp;
+}
+//Buttons
+function changeBackgroundColor(){
+    document.getElementById("überschriftGroß").style.background = colorButton1;
+}
+function changeTextColor(){
+    document.getElementById("überschriftMittel").style.color = colorButton2;
+}
+function helloWorld(){
+    alert("Hello World!");
+}
+
+//alles zurücksetzen
+function clearP() {
+  document.getElementById("demo1").innerHTML = "";
+  document.getElementById("demo1").style.background = "";
+  document.getElementById("demo2").style.background = "";
+  document.getElementById("demo3").style.background = "";
+  document.getElementById("text").style.background = "";
+  document.getElementById("text").style.color= "black";
+  document.getElementById("überschriftGroß").style.background = "";
+  document.getElementById("überschriftMittel").style.color= "black";
+
+}
+
+</script>
+
+
+
+<h2>Kaffemaschine</h2>
+
+<a href="kaffemaschine.png"> <img src= "kaffemaschine.png" alt="Kaffemaschine" width='200' /> </a>
+
+</body>
+</html>

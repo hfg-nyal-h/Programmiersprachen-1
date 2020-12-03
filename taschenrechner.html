@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body>
+  Erste Zahl:
+  <!-- bei den input-Feldern id hinzufügen -->
+  <input id="zahl1" type="number" style="margin-right: 10px;" value="0">
+
+  <!-- bei jedem button onclick="" mit Funktionsaufruf hinzufügen -->
+  <button onclick="calculatePlus()">+</button> <!-- fehlermeldung kam  hier die ganze zeit, das heisst die funktion unten kann auch falsch sein-->
+  <button onclick="calculateMinus()">-</button>
+  <button onclick="calculateMal()">*</button>
+  <button onclick="calculateGeteilt()" style="margin-right: 10px;">/</button> <!-- gibt die größe des buttons an-->
+  Zweite Zahl:
+  <input id="zahl2" type="number" style="margin-right: 10px;" value="0">
+
+  <p>
+  Ergebnis:
+  <input disabled id="ergebnis" type="number" style="margin-right: 10px;" value="0">
+  </p>
+<p id="ergebnis">
+</p>
+
+
+<script>
+// eine Funktion, die Zahl 1 und Zahl 2 addiert
+function calculatePlus(){
+let zahlOne = Number(document.getElementById("zahl1").value)
+let zahlTwo = Number(document.getElementById("zahl2").value)
+let plus = zahlOne + zahlTwo
+document.getElementById("ergebnis").value = plus //das plus steht auf der rechten seite da ich  das ergebnis mit dem plus füllen will
+}
+  
+  /* Zahlen auslesen
+  document.getElementById("id").value = "irgendwas"
+  */
+  // eine Funktion, die Zahl 1 und Zahl 2 subtrahiert
+  function calculateMinus(){
+let zahlOne = Number(document.getElementById("zahl1").value)
+let zahlTwo = Number(document.getElementById("zahl2").value)
+let minus = zahlOne - zahlTwo
+document.getElementById("ergebnis").value = minus 
+  }
+  // eine Funktion, die Zahl 1 und Zahl 2 multipliziert
+
+  function calculateMal(){
+let zahlOne = Number(document.getElementById("zahl1").value)
+let zahlTwo = Number(document.getElementById("zahl2").value)
+let mal = zahlOne * zahlTwo
+document.getElementById("ergebnis").value = mal 
+  }
+  // eine Funktion, die Zahl 1 und Zahl 2 dividiert
+
+  function calculateGeteilt(){
+let zahlOne = Number(document.getElementById("zahl1").value)
+let zahlTwo = Number(document.getElementById("zahl2").value)
+let geteilt = zahlOne / zahlTwo
+document.getElementById("ergebnis").value = geteilt 
+  }
+</script>
+</body>
+</html>

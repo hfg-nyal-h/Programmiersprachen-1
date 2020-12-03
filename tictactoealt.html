@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Nyal Hettmer</title>
+    <meta charset = "utf-8">
+    <meta name ="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7"/>
+    <base href="images/">
+<link href="../tictactoe.css" type="text/css" rel="stylesheet"/> <!-- stylesheet öffnen mit den fonts-->
+
+
+
+
+<h3>Tic-Tac-Toe</h3>
+<body>
+  <body bgcolor="black"></body>
+    <html>
+
+
+    <!-- Spielfeld, Buttons-->
+      
+        <button class="button"></button>
+        
+        <button id="button2" class="button" onclick="changeBackgroundColor()"></button>
+
+        <button onclick="getImageCircle()"
+                ondblclick="getImageCross()"
+                  class="button"></button>
+
+      </br> <img  src= "kaffemaschine.png" id="imageCircle" width='50' /> </a> 
+      <img  src= "kaffemaschine.png" id="imageCross" width='50' /> </a> 
+
+        <br/>
+
+        <button  id="button4" 
+                  class="button"
+                  onclick="pasteImage()"
+                  ondblclick="pasteImage1()"></button>
+
+        <button class="button"></button>
+
+        <button class="button"></button>
+
+        <br/>
+
+        <button class="button"></button>
+
+        <button class="button"></button>
+
+        <button class="button"></button>
+
+        <br/>
+
+<!-- Vorgehensweiße für Spielastand aktualisieren und verlinkung aus Taschenrechner.html ziehen-->
+<p>
+Spieler 1: <input disabled id="Spielstand" type="number" style="margin-right: 10px;" value="0"> <!-- Spielstand Spieler 1-->
+<br/>
+Spieler 2:  <input disabled id="Spielstand" type="number" style="margin-right: 10px;" value="0"> <!-- Spielstand Spieler 2-->
+</p>
+
+</br> <a href="cancel.png"> <img src= "cancel.png" alt="cancel" width='50' /> </a>
+<a href="circle.png"> <img src= "circle.png" alt="circle" width='50' /> </a>
+
+
+
+<script>
+
+
+//Test background Button ändern
+
+let colors = ["yellow", "black", "green", "blue", "violet", "grey", "rgba(120, 21, 233, 0.555)", "aqua", "azure", "blueviolet", "cyan","gold", "ivory", "mistyrose", "orange", "plum", "salmon", "silver", "darkgray","mediumaquamarine"]
+
+colorButton1= getColor()
+
+    function getColor(){
+    let color = []
+    color = colors[getRandomInt(colors.length)]
+    return color
+
+}function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max))
+}
+
+
+function changeBackgroundColor(){
+    document.getElementById("button2").style.background = colorButton1;
+}
+
+let imageCircle = ["circle.png"];
+let imageCircleBG = ["url(circle.png)"];
+let width = ["50px"]
+let imageCross = ["cancel.png"];
+
+function getImageCircle(){
+  document.getElementById("imageCircle").src = imageCircle
+}
+
+function getImageCross(){
+  document.getElementById("imageCircle").src = imageCross
+}
+
+function pasteImage(){
+  document.getElementById("button4").style.background = imageCircleBG
+}
+
+function pasteImage1(){
+  document.getElementById("button4").style.background = imageCrossBG
+}
+
+
+</script>
+
+    </html>
+  </body>

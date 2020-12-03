@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Nyal Hettmer</title>
+    <meta charset = "utf-8">
+    <meta name ="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7"/>
+    <base href="images/">
+<link href="../tictactoe.css" type="text/css" rel="stylesheet"/> <!-- stylesheet öffnen mit den fonts-->
+
+
+
+
+<h3>Tic-Tac-Toe</h3>
+<body>
+  <body bgcolor="black"></body>
+    <html>
+
+
+    <!-- Spielfeld, Buttons-->
+      
+    <button
+    id="button" 
+    class="button"
+  
+    ondblclick="getImageCross()"></button>
+
+    <button
+    id="button2" 
+    class="button"
+    onclick="checkButton()"
+    ondblclick="checkButton1()"></button>
+
+    <button 
+    id="button3" 
+    class="button"
+    onclick="checkButton()"
+    ondblclick="checkButton1()"></button>
+
+</br>
+
+    <button
+    id="button4" 
+    class="button"
+    onclick="checkButton()"
+    ondblclick="checkButton1()"></button>
+
+    <button
+    id="button5" 
+    class="button"
+    onclick="checkButton()"
+    ondblclick="checkButton1()"></button>
+
+    <button 
+    id="button6" 
+    class="button"
+    onclick="checkButton()"
+    ondblclick="checkButton1()"></button>
+
+  </br>
+
+    <button
+    id="button7" 
+    class="button"
+    onclick="checkButton()"
+    ondblclick="checkButton1()"></button>
+
+    <button
+    id="button8" 
+    class="button"
+    onclick="checkButton()"
+    ondblclick="checkButton1()"></button>
+
+    <button
+    id="button9" 
+    class="button"
+    onclick="checkButton()"
+    ondblclick="checkButton1()"></button>
+
+    
+
+
+<!-- Vorgehensweiße für Spielastand aktualisieren und verlinkung aus Taschenrechner.html ziehen-->
+<p>
+Spieler 1: <input disabled id="Spielstand" type="number" style="margin-right: 10px;" value="0"> <!-- Spielstand Spieler 1-->
+<br/>
+Spieler 2:  <input disabled id="Spielstand" type="number" style="margin-right: 10px;" value="0"> <!-- Spielstand Spieler 2-->
+</p>
+
+</br> <a href="cancel.png"> <img src= "cancel.png" alt="cancel" width='50' /> </a>
+<a href="circle.png"> <img src= "circle.png" alt="circle" width='50' /> </a>
+
+
+
+<script>
+
+
+//Test background Button ändern
+
+let imageCircle = ["circle.png"];
+let imageCircleBG = ["url(circle.png)"];
+let imageCross = ["cancel.png"];
+let imageCrossBg = ["url(cancel.png)"];
+
+function checkButton(){
+//if (id="button1") {
+  //document.getElementById("button1").style.background = imageCircleBG
+//}
+if (id="button2") {
+  document.getElementById("button2").style.background = imageCircleBG
+}
+else if (id="button3") {
+  document.getElementById("button3").style.background = imageCircleBG
+}
+else if (id="button4") {
+  document.getElementById("button4").style.background = imageCircleBG
+}
+else if (id="button5") {
+  document.getElementById("button5").style.background = imageCircleBG
+}
+else if (id="button6") {
+  document.getElementById("button6").style.background = imageCircleBG
+}
+else if (id="button7") {
+  document.getElementById("button7").style.background = imageCircleBG
+}
+else if (id="button8") {
+  document.getElementById("button8").style.background = imageCircleBG
+}
+else if (id="button9") {
+  document.getElementById("button9").style.background = imageCircleBG
+}
+}
+
+function checkButton1(){
+  document.getElementById("button1").style.background = imageCrossBG
+}
+
+
+function getImageCircle(){
+  document.getElementById("button1").style.background = imageCircleBG
+}
+
+function getImageCross(){
+  document.getElementById("button").style.background = imageCrossBG
+}
+
+
+</script>
+
+    </html>
+  </body>

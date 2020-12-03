@@ -1,0 +1,22 @@
+h3{
+  color: white;
+
+}
+p{
+  color: white;
+
+}
+
+  .button {
+
+    background:black;/*url(images/circle.png); so kann ich ein Bild als BG einstellen*/
+    border: 2px
+    color: black;
+    padding: 50px 50px; /*Größe der Buttons*/
+    text-align: center;
+    text-decoration: none;
+    display: inline-block; /* IN eine Reihe anzeihen*/
+    font-size: 16px;
+    margin: 0px -2px; /* Lage des Buttons*/
+    cursor: pointer; /*Mouse over*/
+  }

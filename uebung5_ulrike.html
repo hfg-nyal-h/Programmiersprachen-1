@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button id="button1" onclick="clickButton()">Click me!</button> <!-- Button der lediglioch ein alert ausführt -->
+
+
+<p>Enter your name: <input id="yourname" type="text" value=""> <!-- Button als Textfeld-->
+<button onclick="sayHello()">Say hello!</button>                <!-- Hallo sagen-->
+</p>
+<p>
+  Enter your age: <input id="yourage" type="number" value="0">  <!-- Button als Textfeld für Nummern-->
+  <button onclick="sayHelloAge()">Say hello and age</button> <!-- Alert um hallo und alter zu sagen-->
+</p>
+<script>
+function clickButton() {
+  alert("The button was clicked.")  //Button funktion
+}
+function sayHello() {
+  let name = document.getElementById("yourname").value
+  alert("Hello " + name)
+  console.log("Hello " + name)     
+}
+function sayHelloAge() {
+  let name = document.getElementById("yourname").value
+  let age = Number(document.getElementById("yourage").value)
+  let x = age + 5
+  alert("Hello " + name + ", in 5 years you will be " + x + " years old.")
+}
+</script>
+</body>
+</html>

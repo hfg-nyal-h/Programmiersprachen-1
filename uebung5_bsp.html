@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div>
+    <p style="border: 3px green solid; width: 50%; height: 300px;"
+    id="demo"
+    
+    onmousemove="showCoords(event)"
+    onmouseleave="clearP(event)"
+    onmousedown="mouseDown()"
+    onmouseup="mouseUp()"></p>
+    <p>Enter your name: <input type="text" id="yourName" onkeyup="transformChar()">
+      <button onclick="sayHello()"
+      onmouseenter="showCoords(event)">Say hello!</button></p>
+
+</div>
+
+<script>
+function transformChar() {  // Dieses ding he mach alles was geschrieben wird direkt groß
+  let x = document.getElementById("yourName");
+  x.value = x.value.toUpperCase();
+}
+
+function showCoords(event) {
+  let x = event.clientX;
+  let y = event.clientY;
+  let coords = "X: " + x + ", Y: " + y;
+  document.getElementById("demo").innerHTML = coords;
+}
+
+function clearP() {
+  document.getElementById("demo").innerHTML = "";
+  document.getElementById("demo").style.background = "";
+
+}
+
+function mouseDown() {
+  document.getElementById("demo").style.background = "red";
+}
+
+function mouseUp() {
+  document.getElementById("demo").style.background = "orange";
+}
+
+function sayHello() {
+  let name = document.getElementById("yourName").value;
+  alert("Hello " + name)
+}
+</script>
+
+<h2>Kaffemaschine</h2>
+
+<a href="mauna_kea01.png"> <img src= "../../../Webtechnologien/mein_tutorial/images/kaffemaschine.png" alt="Kaffemaschine" width='400' /> </a>
+</body>
+</html>
