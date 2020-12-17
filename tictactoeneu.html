@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Tic Tac Toe</title>
+    <meta charset = "utf-8">
+    <meta name ="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7"/>
+    <base href="images/">
+<link href="../tictactoeneu.css" type="text/css" rel="stylesheet"/> <!-- stylesheet öffnen mit den fonts-->
+
+<title>Tic Tac Toe</title>
+</head>
+<body>
+
+    <div class="viereckHintergrund">
+      <h1 class="ticTacToeUeberschrift"><span class="letterSpacingPoint">.</span><span>T</span>ic <span>T</span>ac <span>T</span>oe<span>.</span></h1>
+
+<div class="werIstDrann">Spieler .. ist drann</div>
+<div class="buttonReset">Reset</div>
+
+<div class="spielfeld">
+<div class="gitter"></div>
+<div class="gitter"></div>
+<div class="gitter"></div>
+<div class="gitter"></div>
+<div class="gitter"></div>
+<div class="gitter"></div>
+<div class="gitter"></div>
+<div class="gitter"></div>
+<div class="gitter"></div>
+</div>
+
+<div class="zentrieren">
+<p>
+ Spieler 1 <input disabled id="ergebnisEins" type="number" value="0"></p>
+ Spieler 2 <input disabled id="ergebnisZwei" type="number"  value="0">
+</div>
+
+<!-- Wie Spielfeld noch so dynamisch umgestalten dass wenn ich mein Spielfeld vergrößer, das an dem selben Punkt bleibt!! und beides auf einer Ebene ist-->
+
+<div src=tictactoescript.js></div>
+</div>
+
+
+<script src="tictactoescript.js"></script>
+</body>

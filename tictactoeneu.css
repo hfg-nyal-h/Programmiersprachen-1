@@ -1,0 +1,102 @@
+.referenz {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: white;
+}
+div span {
+    color: #949494;
+}
+
+
+.viereckHintergrund {
+    background-color: #101010;
+    margin: 50px;
+    padding: 25px;
+    border-radius: 25px;
+
+}
+
+.ticTacToeUeberschrift{
+    color: white;
+    text-align: center;
+}
+
+.werIstDrann{
+ text-align: center;
+    margin-top:0px;
+    font-size: 20px;
+    color: white;
+   
+}
+
+.buttonReset{
+    font: 12px sans-serif; /*Schriftfont*/
+    display: block; /* Angabe zur horizontalen Anordnung*/
+    text-align: center; /* horizontale textausrichtung */
+    vertical-align: middle; /* vertikale textausrichtung*/
+    padding: 0.5rem 1rem; /* Innenabstand */
+    border-radius: 0.3rem; /* Definition Kantenrundng*/
+    color: white; /* textfarbe */
+    text-decoration: normal; /* text deko */
+    background-color: #000000; /* hintergrundfarbe */
+    margin-top: 5px; /* aussenabstand nach oben */ 
+    transition: all 0.5s ease;    /* fading - angabe like 0.5s */
+    cursor: pointer; /* Der Mauszeiger wird zum Zeiger*/
+    }
+
+  .buttonReset:hover {
+    background-color: #2e2e2e; 
+  } 
+
+.spielfeld {
+    display: grid;
+    grid-template-columns:120px 120px 120px;
+    grid-template-rows:120px 120px 120px;
+    grid-gap: 0px;
+    margin-top: 10px;
+    padding: 0px;
+    background-color: black;
+}
+.gitter{
+    background-color: #101010;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+}
+.gitter:hover {
+    background-color: #2e2e2e; 
+  } 
+
+
+.letterSpacingPoint {
+
+    letter-spacing: -6px;
+
+}
+input {
+    display: inline;
+    width: 10%;
+    background-color: #000000;
+    color: white;
+    text-align: right;
+}
+
+.inline{
+    display: inline;
+}
+
+.zentrieren{
+    justify-content: center;
+
+}
