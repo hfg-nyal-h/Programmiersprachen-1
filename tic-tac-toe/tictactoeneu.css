@@ -18,7 +18,6 @@ div span {
 
 .viereckHintergrund {
     background-color: #101010;
-    margin: 50px;
     padding: 25px;
     border-radius: 25px;
 
@@ -29,7 +28,7 @@ div span {
     text-align: center;
 }
 
-.werIstDrann{
+.werIstDran{
  text-align: center;
     margin-top:0px;
     font-size: 20px;
@@ -37,7 +36,7 @@ div span {
    
 }
 
-.buttonReset{
+.button{
     font: 12px sans-serif; /*Schriftfont*/
     display: block; /* Angabe zur horizontalen Anordnung*/
     text-align: center; /* horizontale textausrichtung */
@@ -52,19 +51,20 @@ div span {
     cursor: pointer; /* Der Mauszeiger wird zum Zeiger*/
     }
 
-  .buttonReset:hover {
+  .button:hover {
     background-color: #2e2e2e; 
   } 
 
 .spielfeld {
     display: grid;
-    grid-template-columns:120px 120px 120px;
-    grid-template-rows:120px 120px 120px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-gap: 0px;
     margin-top: 10px;
     padding: 0px;
     background-color: black;
 }
+
 .gitter{
     background-color: #101010;
     cursor: pointer;
@@ -100,3 +100,5 @@ input {
     justify-content: center;
 
 }
+
+    
