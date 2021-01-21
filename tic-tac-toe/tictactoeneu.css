@@ -62,11 +62,11 @@ div span {
     grid-gap: 0px;
     margin-top: 10px;
     padding: 0px;
-    background-color: black;
+    background-color: #101010;
 }
 
 .gitter{
-    background-color: #101010;
+    background-color: black;
     cursor: pointer;
     align-items: center;
     justify-content: center;

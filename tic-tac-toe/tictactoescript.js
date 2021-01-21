@@ -6,7 +6,7 @@ let buttonResetDiv =document.querySelector(".resetButton");
 //console.log(werIstDranDiv);
 //console.log(buttonResetDiv);
 
-let currentPlayer = "yellow";
+let currentPlayer = "url('circle.png')";
 
 const playerOne= "x";
 const playerTwo= "o";
@@ -19,32 +19,41 @@ let spielfeldNumber = [];
 //Hier wird die Größe des Spielfelds angegeben (n x n)
 
 function generateSpielfeld() {
+
   //Die Zahl die im Eingabefeld Input steht wird verwendet
   spielfeldNumber = Number(document.getElementById("input").value);
     //herunterrechnen, neue Felder minus die vorhandenen
+    /*
     for (let i = 0; i < (spielfeldNumber * spielfeldNumber-9); i++) {
     // Erstelle ein div container mit der Klasse gitter
     const Feld = $("<div></div>").appendTo(".spielfeld").addClass("gitter")
     console.log("so viele divs")
     }
+*/
+//let j = 1;
+$('.spielfeld').empty();
+
+    for (let i = 0; i < spielfeldNumber; i++) {
+      // i zählt Zeile
+      for (let j = 0; j < spielfeldNumber ; j++) {
+        // j zählt Spalte
+          let newId = 'Zeile'+j+'Spalte'+i  
+          $(".spielfeld").append("<div id=" + newId + " class='gitter'></div>");
+      }
+     
+    }
+
   //Änder das Stylesheet des spielfelds so ab, dass die neue Anzahl an felder angepasst wird
   const layout = $(".spielfeld").css( "grid-template-columns", "repeat(" + spielfeldNumber + ", 1fr)" );
   // Es wurde ein Spielfeld generiert
   layoutUpdate = true;
   console.log(layoutUpdate); 
 
-  $(".spielfeld").on("click", "div", function(){
-    $(this).css("backgroundColor",currentPlayer);
- if (currentPlayer === "yellow") {
-
-  currentPlayer = "red";
-   
- }else if (currentPlayer === "red"){
-
-  currentPlayer = "yellow";
 }
-})
-}
+
+let numItems = $('.spielfeld').children('div').length;
+
+console.log(numItems);
 
   // Wechsel der Spieler pro click, mit schleife?
   // Maximale Spielzüge aus value oder aus anzahl der gitter divs
@@ -57,31 +66,14 @@ function generateSpielfeld() {
 //und wieder zum anfang der schleife
 
 
-  function changePlayer() {
+$(".spielfeld").on("click", "div", function(){
+  $(this).css("background",currentPlayer);
+if (currentPlayer === "url('circle.png')") {
 
-    if (layoutUpdate === true) {
+currentPlayer = "url('cancel.png')" ;
+ 
+}else if (currentPlayer === "url('cancel.png')"){
 
-      let numGitter = $('.gitter').length; //Anzahl der gitter
-      let numItems = $('.spielfeld').children('div').length;
-/*
-          for (let i = 0; i < numGitter/2; i++) {
-            console.log(numItems+"moin, Loopf geht von vorne los");
-
-              $(".gitter").click(function(){
-                $(this).css("backgroundColor","yellow");
-
-console.log("Das wird Gelb")
-              $(".gitter").click(function(){
-                 $(this).css("backgroundColor","red");
-console.log("Das wird rot")
-
-              });
-              });
-          }
-          */
-          }else {
-            console.log("Käse");
+currentPlayer = "url('circle.png')" ;
 }
-}
-
-
+})
