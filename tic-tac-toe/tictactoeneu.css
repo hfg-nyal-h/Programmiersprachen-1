@@ -16,7 +16,7 @@ div span {
 }
 
 
-.viereckHintergrund {
+.gameHintergrund {
     background-color: #101010;
     padding: 25px;
     border-radius: 25px;
@@ -40,7 +40,7 @@ div span {
     font: 12px sans-serif; /*Schriftfont*/
     display: block; /* Angabe zur horizontalen Anordnung*/
     text-align: center; /* horizontale textausrichtung */
-    vertical-align: middle; /* vertikale textausrichtung*/
+   /* vertical-align: middle; /* vertikale textausrichtung*/
     padding: 0.5rem 1rem; /* Innenabstand */
     border-radius: 0.3rem; /* Definition Kantenrundng*/
     color: white; /* textfarbe */

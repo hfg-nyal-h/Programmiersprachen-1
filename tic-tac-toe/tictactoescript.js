@@ -8,11 +8,11 @@ let buttonResetDiv =document.querySelector(".resetButton");
 
 let currentPlayer = "url('circle.png')";
 
-const playerOne= "x";
-const playerTwo= "o";
+const playerX= "url('cancel.png')";
+const playerO= "url('circle.png')";
+
 //Es wurde KEIN Spielfeld generiert
 let layoutUpdate = false;
-
 
 //Platzhalter zum generieren der Spielfeldgröße
 let spielfeldNumber = [];
@@ -47,13 +47,13 @@ $('.spielfeld').empty();
   const layout = $(".spielfeld").css( "grid-template-columns", "repeat(" + spielfeldNumber + ", 1fr)" );
   // Es wurde ein Spielfeld generiert
   layoutUpdate = true;
-  console.log(layoutUpdate); 
+ // console.log(layoutUpdate); 
 
 }
 
 let numItems = $('.spielfeld').children('div').length;
 
-console.log(numItems);
+//console.log(numItems);
 
   // Wechsel der Spieler pro click, mit schleife?
   // Maximale Spielzüge aus value oder aus anzahl der gitter divs
@@ -68,12 +68,12 @@ console.log(numItems);
 
 $(".spielfeld").on("click", "div", function(){
   $(this).css("background",currentPlayer);
-if (currentPlayer === "url('circle.png')") {
+if (currentPlayer === playerO) {
 
-currentPlayer = "url('cancel.png')" ;
+currentPlayer = playerX ;
  
-}else if (currentPlayer === "url('cancel.png')"){
+}else if (currentPlayer === playerX){
 
-currentPlayer = "url('circle.png')" ;
+currentPlayer = playerO;
 }
 })
