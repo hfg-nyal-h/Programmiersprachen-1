@@ -11,20 +11,30 @@ let random = Math.random()
 const playerX= "url('cancel.png')";
 const playerO= "url('circle.png')";
 
+let spielerEins = document.getElementById("inputEins").value;
+let spielerZwei = document.getElementById("inputZwei").value;
+
 let gameStatus = false;
 
 let currentPlayer = [];
 
+const btnGenerate = document.getElementById("btnGenerate");
 
+
+
+
+
+
+//Zufall wer als erstes dran kommt
 if (random > 0.5) {
     
 currentPlayer = playerX;
-$(".werIstDran").text("Spieler X ist dran")
+$(".werIstDran").text(spielerEins+" ist dran")
 
 } else if (random <= 0.5) {
  
 currentPlayer = playerO;
-$(".werIstDran").text("Spieler O ist dran")
+$(".werIstDran").text(spielerZwei+ " ist dran")
 
 }
 
@@ -36,8 +46,7 @@ let spielfeldNumber = [];
 //Hier wird die Größe des Spielfelds angegeben (n x n)
 
 
-
-function generateSpielfeld() {
+btnGenerate.addEventListener("click", function(){
 
   //Die Zahl die im Eingabefeld Input steht wird verwendet
   spielfeldNumber = Number(document.getElementById("input").value);
@@ -46,7 +55,7 @@ function generateSpielfeld() {
   if (gameStatus === true) { 
 
     $("#btnGenerate").attr("disabled", true).click(function(){
-      alert("Das Spielfeld kann nur ein mal generiert werden und nur dann, wenn das Spiel nicht am laufen ist! Drücke den Reset button um das Spiel zurückzsuetzen")
+      alert("Das Spielfeld kann nur neu generiert werden, wenn das Spiel nicht am laufen ist! Drück Reset")
     });
 
     //Wenn nicht dann Spielfeld enerieren
@@ -71,7 +80,7 @@ $('.spielfeld').empty();
   layoutUpdate = true;
  // console.log(layoutUpdate); 
   }
-}
+});
 
 
 //let numItems = $('.spielfeld').children('div').length;
@@ -86,7 +95,7 @@ $(".spielfeld").on("click", "div", function(){
 if (currentPlayer === playerO) {
 
 currentPlayer = playerX ;
-$(".werIstDran").text("Spieler X ist dran")
+$(".werIstDran").text(spielerEins+" ist dran")
 //Spiel ist im gange
 gameStatus = true;
 console.log(gameStatus)
@@ -94,8 +103,31 @@ console.log(gameStatus)
 }else if (currentPlayer === playerX){
 
 currentPlayer = playerO;
-$(".werIstDran").text("Spieler O ist dran")
+$(".werIstDran").text(spielerZwei+" ist dran")
 //Spiel ist im gange
 gameStatus = true;
 }
 })
+
+
+//reset Button
+$("#btnReset").click(function(){
+
+$("#spielfeld").children("div").css({
+      "background": "black",  // set background to currentPlayer X oder currentPlayer O
+      "pointer-events" : "all",
+})
+gameStatus = false;
+});
+
+
+//Spielername Input
+
+
+$("#inputEins").on('input', function () {
+   spielerEins = document.getElementById("inputEins").value;
+});
+
+$("#inputZwei").on('input', function () {
+  spielerZwei = document.getElementById("inputZwei").value;
+});

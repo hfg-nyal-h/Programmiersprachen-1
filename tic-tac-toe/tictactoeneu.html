@@ -6,6 +6,7 @@
     <meta name ="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=0.7"/>
     <base href="images/">
+    <link rel="shortcut icon" href="kaffemaschine.png"/>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <link href="../tictactoeneu.css" type="text/css" rel="stylesheet"/> <!-- stylesheet öffnen mit den fonts-->
 
@@ -17,30 +18,35 @@
 <div class="gameHintergrund">
 <h1 class="ticTacToeUeberschrift"><span class="letterSpacingPoint">.</span><span>T</span>ic <span>T</span>ac <span>T</span>oe<span>.</span></h1>
 
-<p class="werIstDran">Spieler .. ist dran</p>
-<div class="button" id="btnGenerate" onclick="generateSpielfeld() ;this.onclick=null">Spielfeld Generieren</div> <!-- durch:    this.onclick=null;    lässt sich der BUtton nur ein mak drücken-->
+<p class="werIstDran"></p>
+<div class="button" id="btnGenerate">Spielfeld Generieren</div> <!-- durch:    this.onclick=null;    lässt sich der BUtton nur ein mak drücken-->
 
-<div class="button">Reset</div>
+<div class="button" id="btnReset">Reset</div>
 
 <div id="spielfeld" class="spielfeld">
-<div class="gitter"></div>
-<div class="gitter"></div>
-<div class="gitter"></div>
-<div class="gitter"></div>
-<div class="gitter"></div>
-<div class="gitter"></div>
-<div class="gitter"></div>
-<div class="gitter"></div>
-<div class="gitter"></div>
+<div class="gitter" id="Zeile0Spalte0"></div>
+<div class="gitter" id="Zeile1Spalte0"></div>
+<div class="gitter" id="Zeile2Spalte0"></div>
+<div class="gitter" id="Zeile0Spalte1"></div>
+<div class="gitter" id="Zeile1Spalte1"></div>
+<div class="gitter" id="Zeile2Spalte1"></div>
+<div class="gitter" id="Zeile0Spalte2"></div>
+<div class="gitter" id="Zeile1Spalte2"></div>
+<div class="gitter" id="Zeile2Spalte2"></div>
 </div>
 
 
 <div id="demo"></div>
+<input id="inputEins" type="text" value="Spieler 1">
+<br>
+<input id="inputZwei" type="text" value="Spieler 2"> 
 
 <div>
 <p>
- Spieler 1 <input disabled id="ergebnisEins" type="number" value="0"></p>
- Spieler 2 <input disabled id="ergebnisZwei" type="number"  value="0">
+
+Spieler 1<input disabled id="ergebnisEins" type="number" value="0"></p>
+Spieler 2 <input disabled id="ergebnisEins" type="number" value="0">
+
 </div>
 <br>
 
