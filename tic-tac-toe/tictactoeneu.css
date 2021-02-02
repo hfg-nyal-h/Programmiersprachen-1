@@ -78,6 +78,18 @@ div span {
     background-color: #2e2e2e; 
   } 
 
+.x {
+    background: url('images/cancel.png');
+
+}
+
+
+.o {
+    background: url('images/circle.png');
+    
+}
+
+
 
 .letterSpacingPoint {
 
