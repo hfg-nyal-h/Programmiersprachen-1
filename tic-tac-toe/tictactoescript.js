@@ -58,7 +58,8 @@ else {
   // i zählt spalte
   for (let j = 0; j < spielfeldNumber ; j++) {
   // j zählt zeile
-  let newId = 'Zeile'+j+'Spalte'+i  
+  //let newId = 'Zeile'+j+'Spalte'+i 
+  let newId = j+"_"+i 
   $(".spielfeld").append("<div id=" + newId + " class='gitter'></div>");
 
 
@@ -75,75 +76,150 @@ else {
 
 $(".spielfeld").on("click", "div", function(){
   this.classList.add(currentPlayer), //bei click klasse "x" oder "o" hinzufügen
-  $(this).css({"pointer-events" : "none",    // unclickbar (wegen no pointer event) nachdem geclickt
-  });
+  $(this).css({"pointer-events" : "none"}); // unclickbar (wegen no pointer event) nachdem geclickt
+  
+  console.log("Field with coordinates " + this.id.split("_")[0] + "|" + this.id.split("_")[1] + " is set to " + currentPlayer)
 
-if (currentPlayer === playerO) {
-
-  currentPlayer = playerX ;
-  $(".werIstDran").text(spielerEins+" ist dran")
-  //Spiel ist im gange
   gameStatus = true;
-  console.log(gameStatus)
-  checkWinner();
-  }
-else if (currentPlayer === playerX){
+  let x = Number(this.id.split("_")[0]);
+  let y = Number(this.id.split("_")[1]);
+  checkWinner(x, y, currentPlayer);
 
-  currentPlayer = playerO;
-  $(".werIstDran").text(spielerZwei+" ist dran")
-  //Spiel ist im gange
-  gameStatus = true;
-  checkWinner();
+  if (currentPlayer === playerO) {
+    currentPlayer = playerX ;
+    $(".werIstDran").text(spielerEins+" ist dran")
   }
-
+  else if (currentPlayer === playerX){
+    currentPlayer = playerO;
+    $(".werIstDran").text(spielerZwei+" ist dran")
+  }
 })
-
 
 //Button Reset
 $("#btnReset").click(function(){
-
   $("#spielfeld").children("div").css({
-  "pointer-events" : "all",
-  })
-  .removeClass([ "x", "o" ]) //entfernt Klassen bei reset
+    "pointer-events" : "all",
+  }).removeClass([ "x", "o" ]) //entfernt Klassen bei reset
+  $(".werHatGewonnen").text("");
   gameStatus = false;
 });
 
 
 //Player Name Input
-
 $("#inputEins").on('input', function () {
-   spielerEins = document.getElementById("inputEins").value;
+  spielerEins = document.getElementById("inputEins").value;
+  if (currentPlayer = playerX) {
+      $(".werIstDran").text(spielerEins + " ist dran");
+  }
 });
-
 $("#inputZwei").on('input', function () {
   spielerZwei = document.getElementById("inputZwei").value;
+  if (currentPlayer = playerO) {
+      $(".werIstDran").text(spielerZwei + " ist dran");
+  }
 });
 
+
+
+
+
 //Gewinnerkennung
+function checkWinner(x, y, currentPlayer){
+  let size = Number(document.getElementById("input").value);
 
+  let isHorizontal = checkHorizontal(y, size, currentPlayer)
+  let isVertical = checkVertical(x, size, currentPlayer)
+  let isDiagonal = checkDiagonal(size, currentPlayer)
 
-function checkWinner(){
+  if (isHorizontal || isVertical || isDiagonal) {
 
-const gitterDivs = document.querySelectorAll('.gitter');
-var element = "";
-
-for (let i = 0; i < 3; i++) {
-  element = gitterDivs[i].classList.item(1);
-  console.log(element)
-
+    $(".werHatGewonnen").text(currentPlayer + " hat gewonnen");
+    console.log(currentPlayer + " hat gewonnen");
+    countdown();
+    
+  
+  }
 }
 
-const Zeile0Spalte0 = gitterDivs[0].classList.item(1);
-const Zeile1Spalte0 = gitterDivs[1].classList.item(1);
-const Zeile2Spalte0 = gitterDivs[2].classList.item(1);
-
-//console.log(Zeile0Spalte0);
-//console.log(Zeile1Spalte0);
-//console.log(Zeile2Spalte0);
-
-
-if ((Zeile0Spalte0 && Zeile0Spalte0 === Zeile1Spalte0 && Zeile0Spalte0 === Zeile2Spalte0)) {
-  console.log ("xo hat gewonnen")
+function checkHorizontal(y, size, currentPlayer){
+  // horizontal
+  for (let i=0; i<size; i++) {
+    let value = document.getElementById(i + "_" + y).classList.item(1);
+    if (value != currentPlayer) {
+      return false;
+    }
+  }
+  return true;
 }
+
+function checkVertical(x, size, currentPlayer){
+  // vertikal
+  for (let i = 0; i < size; i++) {
+    let value = document.getElementById(x + "_" + i).classList.item(1);
+    if (value != currentPlayer) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function checkDiagonal(size, currentPlayer){
+  // diagonal
+  let isLeftTopToRightBottom = true;
+  let isRightTopToLeftBottom = true;
+  
+  for (let i = 0; i < size; i++) {
+    let value = document.getElementById(i + "_" + i).classList.item(1);
+    if (value != currentPlayer) {
+      isLeftTopToRightBottom = false;
+    }
+  }
+
+  for (let i = size-1; i >= 0; i--) {
+    for (let j = 0; j < size; j++) {
+      let value = document.getElementById(i + "_" + j).classList.item(1);
+      if (value != currentPlayer) {
+        isRightTopToLeftBottom = false;
+      }
+    }
+  }
+  return isLeftTopToRightBottom || isRightTopToLeftBottom;
+}
+
+//countdown
+
+function countdown(){
+var timeleft = 15;
+var downloadTimer = setInterval(function(){
+  if(timeleft === 0){
+    clearInterval(downloadTimer);
+    document.getElementById("countdown").innerHTML = "";
+      $("#spielfeld").children("div").css({
+        "pointer-events" : "all",
+      }).removeClass([ "x", "o" ])
+      $(".werHatGewonnen").text("");
+      highlight();
+
+      gameStatus = false;
+
+    } else if ( gameStatus === false){
+      $("#countdown").text("");
+      timeleft = 0;
+      return;
+
+    } else {
+    document.getElementById("countdown").innerHTML = timeleft + " sekunden bis zum Reset";
+    }
+ 
+  timeleft -= 1;
+}, 990);
+}
+
+// highlight
+
+function highlight(){
+  $('#btnReset').addClass("highlight");
+  setTimeout(function () {
+        $('#YourElement').removeClass('highlight');
+  }, 2000);
 }

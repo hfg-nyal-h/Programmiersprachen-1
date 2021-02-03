@@ -36,6 +36,15 @@ div span {
    
 }
 
+.werHatGewonnen{
+    text-align: center;
+       margin-top:0px;
+       font-size: 20px;
+       color: white;
+    
+      
+   }
+
 .button{
     font: 12px sans-serif; /*Schriftfont*/
     display: block; /* Angabe zur horizontalen Anordnung*/
@@ -113,4 +122,38 @@ input {
 
 }
 
+.countdown{
+    text-align: center;
+       margin-top:0px;
+       font-size: 15px;
+       color: white;
+       line-height: 0.1;
+   }
     
+.space{
+
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 300px;
+    margin: 10px;
+
+}
+
+#demo {
+
+    margin: 0 auto;
+}
+
+@keyframes highlight {
+    0% {
+        background: #2e2e2e; 
+    }
+    100% {
+        background: none;
+    }
+}
+
+.highlight {
+    animation: highlight 1s;
+}
