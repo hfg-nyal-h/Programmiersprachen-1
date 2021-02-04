@@ -44,6 +44,7 @@ if (isGameLive === true) {
     } 
   }
   $(".spielfeld").css( "grid-template-columns", "repeat(" + spielfeldGroesse + ", 1fr)" ); //Grid auf neue Anzahl anpassen
+  $("#spielfeld").children("div").css("pointer-events" , "all")  
 }});
 
 //Events bei click auf Spielfeld
@@ -171,7 +172,7 @@ function checkDiagonal(spielfeldGroesse, currentPlayer){
         isRightTopToLeftBottom = false;
         break;
       }
-    j++;    //spalte erhöhen
+    j++;      //spalte erhöhen
   }
   return isLeftTopToRightBottom || isRightTopToLeftBottom;
 }
@@ -191,19 +192,20 @@ function checkAllFields(spielfeldGroesse) {
 
 //Button Reset
 function reset(){
-  $("#spielfeld").children("div").css({
-    "pointer-events" : "all",           //erlaube Mouse events (clickbar)
-  }).removeClass([ "x", "o" ])          //entfernt Klassen bei reset
+  $("#spielfeld").children("div").css(
+    "pointer-events" , "all")         //erlaube Mouse events (clickbar)
+    .removeClass([ "x", "o" ])          //entfernt Klassen bei reset
   $(".werHatGewonnen").text("");        //text leeren
   $(".werIstDran").fadeTo("slow", 1.0); //Einfaden 
   isGameLive = false;                   //Spielfeld kann generiert werden
 }
 
 // Gewinner oder Unentschieden
-function gameZuEnde(){                              // Wenn einer gewonnen hat oder Unentschieden
+function gameZuEnde(){                        // Wenn einer gewonnen hat oder Unentschieden                     
   countdown();                                       // Startet Countdown für auto Reset
   $(".werIstDran").fadeTo("slow", 0.0);             //verwirrung eliminieren wenn einer gewonnen
-  $(".spielfeld").css({"pointer-events" : "none"}); //buttonclick Spielfeld aus
+  $(".spielfeld").css("pointer-events" , "none"); //buttonclick Spielfeld aus
+
 }
 
 //countdown
