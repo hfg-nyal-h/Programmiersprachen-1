@@ -213,8 +213,8 @@ var downloadTimer = setInterval(function(){
   if(timeleft === 0){                                   //hier gleiche aufrufe wie bei reset button
     clearInterval(downloadTimer);
     document.getElementById("countdown").innerHTML = ""; 
-    reset()                                             //nach ablauf countdown felder wieder freiräumen
     highlight();                                        //Button reset highlighten, dass es aussieht als hätte man geclicked
+    reset()                                             //nach ablauf countdown felder wieder freiräumen
     
     } else if ( isGameLive === false){                 
       $("#countdown").text("");                         //Wenn spielfeld zurueckgesetzt wurde soll Text auch verschinden

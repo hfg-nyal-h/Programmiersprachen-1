@@ -9,7 +9,7 @@ if (random > 0.5)
 hier wird zufällig entschieden werlcher spieler mit dem Zug anfangen darf.
 
 
-btnGenerate -
+btnGenerate
 
 Ist dafür da das Spielfeld nach der wunschgröße zu generieren da es sich um ein interaktives Feld also n x n handelt.
 
