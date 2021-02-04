@@ -132,14 +132,25 @@ function checkWinner(x, y, currentPlayer){
   let isVertical = checkVertical(x, size, currentPlayer)
   let isDiagonal = checkDiagonal(size, currentPlayer)
 
-  if (isHorizontal || isVertical || isDiagonal) {
+  if (isHorizontal|| isDiagonal || isVertical) {
 
-    $(".werHatGewonnen").text(currentPlayer + " hat gewonnen");
-    countdown();
-    $(".werIstDran").fadeTo("slow", 0.0);
-    
+
+  if(currentPlayer ===playerX){
+    $(".werHatGewonnen").text(spielerEins + " hat gewonnen");
+    $("#counterErgebnisEins").append("<img src='strich.png' alt='strich.png' id='counterSymbol'/>");
   
   }
+    else if(currentPlayer === playerO){
+      
+      $(".werHatGewonnen").text(spielerZwei + " hat gewonnen");
+      $("#counterErgebnisZwei").append("<img src='strich.png' alt='circle.png' id='counterSymbol'/>");
+    }
+
+    countdown();
+    $(".werIstDran").fadeTo("slow", 0.0);
+    $(".spielfeld").css({"pointer-events" : "none"});
+  }
+
 }
 
 function checkHorizontal(y, size, currentPlayer){
@@ -199,6 +210,7 @@ var downloadTimer = setInterval(function(){
         "pointer-events" : "all",
       }).removeClass([ "x", "o" ])
       $(".werHatGewonnen").text("");
+      $(".werIstDran").fadeTo("slow", 1.0);
       highlight();
 
 
@@ -216,15 +228,4 @@ var downloadTimer = setInterval(function(){
  
   timeleft -= 1;
 }, 990);
-}
-
-  
-
-// highlight
-
-function highlight(){
-  $('#btnReset').addClass("highlight");
-  setTimeout(function () {
-        $('#YourElement').removeClass('highlight');
-  }, 2000);
 }
