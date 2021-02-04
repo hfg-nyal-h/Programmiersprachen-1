@@ -3,13 +3,13 @@
 let spielerEins = document.getElementById("inputEins").value; // Namenseingabe ü. Inputfeld Spieler 1
 let spielerZwei = document.getElementById("inputZwei").value; // Namenseingabe ü. Inputfeld Spieler 2
 const btnGenerate = document.getElementById("btnGenerate");   
+const btnReset = document.getElementById("btnReset");
 
 //variablen
 let random = Math.random()              //zahl zwischen 0 und 1 generieren
 let isGameLive = false;                 // Spiel ist aktiv -> sodass Spielfeld nicht generiert werden kann
 let currentPlayer = [];                 // deklaration für abwechselnde Spielerauswahl 
 let spielfeldGroesse = [];              //Deklaration der Spielfeldgröße wird später aus der Value des Inputfelds: inputSpielfeldGroesse geholt
-let noWinnerV=false;
 //constanten
 const playerX= "x";      // Currentplayer greift darauf zu | Später wird beim Click auf ein Div der inhalt von playerX/playerO als neue Klasse 
 const playerO= "o";       // definiert, dass für die Gewinnermittlung notwendig ist
@@ -190,7 +190,6 @@ function checkAllFields(spielfeldGroesse) {
 }
 
 //Button Reset
-
 function reset(){
   $("#spielfeld").children("div").css({
     "pointer-events" : "all",           //erlaube Mouse events (clickbar)
@@ -200,7 +199,7 @@ function reset(){
   isGameLive = false;                   //Spielfeld kann generiert werden
 }
 
-
+// Gewinner oder Unentschieden
 function gameZuEnde(){                              // Wenn einer gewonnen hat oder Unentschieden
   countdown();                                       // Startet Countdown für auto Reset
   $(".werIstDran").fadeTo("slow", 0.0);             //verwirrung eliminieren wenn einer gewonnen
@@ -208,7 +207,6 @@ function gameZuEnde(){                              // Wenn einer gewonnen hat o
 }
 
 //countdown
-
 function countdown(){
 var timeleft = 30;                                      //Countdownzeit auf 30 Sekunden
 var downloadTimer = setInterval(function(){         
