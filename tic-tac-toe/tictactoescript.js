@@ -101,6 +101,7 @@ $("#btnReset").click(function(){
     "pointer-events" : "all",
   }).removeClass([ "x", "o" ]) //entfernt Klassen bei reset
   $(".werHatGewonnen").text("");
+  $(".werIstDran").fadeTo("slow", 1.0);
   gameStatus = false;
 });
 
@@ -134,8 +135,8 @@ function checkWinner(x, y, currentPlayer){
   if (isHorizontal || isVertical || isDiagonal) {
 
     $(".werHatGewonnen").text(currentPlayer + " hat gewonnen");
-    console.log(currentPlayer + " hat gewonnen");
     countdown();
+    $(".werIstDran").fadeTo("slow", 0.0);
     
   
   }
@@ -189,7 +190,7 @@ function checkDiagonal(size, currentPlayer){
 //countdown
 
 function countdown(){
-var timeleft = 15;
+var timeleft = 30;
 var downloadTimer = setInterval(function(){
   if(timeleft === 0){
     clearInterval(downloadTimer);
@@ -199,6 +200,7 @@ var downloadTimer = setInterval(function(){
       }).removeClass([ "x", "o" ])
       $(".werHatGewonnen").text("");
       highlight();
+
 
       gameStatus = false;
 
@@ -210,10 +212,13 @@ var downloadTimer = setInterval(function(){
     } else {
     document.getElementById("countdown").innerHTML = timeleft + " sekunden bis zum Reset";
     }
+  
  
   timeleft -= 1;
 }, 990);
 }
+
+  
 
 // highlight
 
